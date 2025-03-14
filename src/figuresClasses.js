@@ -3,12 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Rectangle = exports.Circle = exports.Triangle = void 0;
 exports.getInfo = getInfo;
 var Triangle = /** @class */ (function () {
-    function Triangle(color, a, b, c) {
+    function Triangle(color, a, b, c, shape) {
+        if (shape === void 0) { shape = 'triangle'; }
         this.color = color;
         this.a = a;
         this.b = b;
         this.c = c;
-        this.shape = 'triangle';
+        this.shape = shape;
         this.validationTriangle();
     }
     Triangle.prototype.validationTriangle = function () {
@@ -26,10 +27,11 @@ var Triangle = /** @class */ (function () {
 }());
 exports.Triangle = Triangle;
 var Circle = /** @class */ (function () {
-    function Circle(color, a) {
-        this.a = a;
+    function Circle(color, a, shape) {
+        if (shape === void 0) { shape = 'circle'; }
         this.color = color;
-        this.shape = 'circle';
+        this.a = a;
+        this.shape = shape;
         this.validationCircle();
     }
     Circle.prototype.validationCircle = function () {
@@ -45,14 +47,15 @@ var Circle = /** @class */ (function () {
 }());
 exports.Circle = Circle;
 var Rectangle = /** @class */ (function () {
-    function Rectangle(color, a, b) {
+    function Rectangle(color, a, b, shape) {
+        if (shape === void 0) { shape = 'rectangle'; }
         this.color = color;
         this.a = a;
         this.b = b;
-        this.shape = 'rectangle';
-        this.valifationRectangle();
+        this.shape = shape;
+        this.validationRectangle();
     }
-    Rectangle.prototype.valifationRectangle = function () {
+    Rectangle.prototype.validationRectangle = function () {
         if (this.a <= 0 || this.b <= 0) {
             throw Error("throws an error");
         }

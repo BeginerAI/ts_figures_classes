@@ -7,23 +7,13 @@ export interface Figure {
 }
 
 export class Triangle implements Figure {
-  color: string;
-
-  a: number;
-
-  b: number;
-
-  c: number;
-
-  shape: string;
-
-  constructor(color: string, a: number, b: number, c: number) {
-    this.color = color;
-    this.a = a;
-    this.b = b;
-    this.c = c;
-    this.shape = 'triangle';
-
+  constructor(
+    public color: string,
+    public a: number,
+    public b: number,
+    public c: number,
+    public shape: string = 'triangle',
+  ) {
     this.validationTriangle();
   }
 
@@ -49,17 +39,11 @@ export class Triangle implements Figure {
 }
 
 export class Circle implements Figure {
-  color: string;
-
-  a: number;
-
-  shape: string;
-
-  constructor(color: string, a: number) {
-    this.a = a;
-    this.color = color;
-    this.shape = 'circle';
-
+  constructor(
+    public color: string,
+    public a: number,
+    public shape: string = 'circle',
+  ) {
     this.validationCircle();
   }
 
@@ -77,24 +61,16 @@ export class Circle implements Figure {
 }
 
 export class Rectangle implements Figure {
-  color: string;
-
-  a: number;
-
-  b: number;
-
-  shape: string;
-
-  constructor(color: string, a: number, b: number) {
-    this.color = color;
-    this.a = a;
-    this.b = b;
-    this.shape = 'rectangle';
-
-    this.valifationRectangle();
+  constructor(
+    public color: string,
+    public a: number,
+    public b: number,
+    public shape: string = 'rectangle',
+  ) {
+    this.validationRectangle();
   }
 
-  private valifationRectangle(): void {
+  private validationRectangle(): void {
     if (this.a <= 0 || this.b <= 0) {
       throw Error(`throws an error`);
     }
